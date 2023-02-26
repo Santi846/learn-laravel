@@ -1,9 +1,12 @@
 <?php
 
 namespace Database\Seeders;
+namespace App\Models;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
 class PostsTableSeeder extends Seeder
 {
