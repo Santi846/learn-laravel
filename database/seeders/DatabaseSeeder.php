@@ -18,9 +18,11 @@ class DatabaseSeeder extends Seeder
     {
         // $this->call([PruebasTableSeeder::class]);
 
-        Pruebas::factory(10)->create([
-            'body' => 'Descubriendo nuevos orizontes'
-        ]);
+        Pruebas::factory(100)->create();
+
+        // Pruebas::factory(100)->create([
+        //     'body' => 'Descubriendo nuevos orizontes'
+        // ]);
 
         // DB::table('pruebas')->insert(
         //     [
