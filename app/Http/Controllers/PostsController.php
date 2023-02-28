@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 // use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 // use Illuminate\Http\Response;
+use Illuminate\View\View;
 
 class PostsController extends Controller
 {
@@ -14,9 +15,15 @@ class PostsController extends Controller
 
     
 
-    public function main()//: Response
-    {
-        return view('blog.main');
+    public function main(): View//: Response
+    {   
+       
+        $pruebas = DB::table('pruebas')->get();
+        dd($pruebas);
+        // return view('blog.main', ['pruebas' => $pruebas]);
+        
+    
+         return view('blog.main');
     }
 
     /**

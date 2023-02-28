@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
+use Illuminate\View\View;
 use Illuminate\Http\Request;
+
 
 class PruebasController extends Controller
 {
@@ -12,9 +16,12 @@ class PruebasController extends Controller
 
     
 
-    public function main()//: Response
+    public function main():View
     {
-        return view('blog.main');
+        $pruebas = DB::table('pruebas');
+
+        return view('blog.main', ['pruebas' => $pruebas]);
+        
     }
 
     /**

@@ -51,7 +51,7 @@ Route::get('/', HomeController::class);
 
 
 
-Route::prefix('/blog')->group(function(){
+Route::prefix('/main')->group(function(){
 
 /*GET REQUEST*/
     Route::get('/', [PostsController::class, 'main'])->name('blog.main');
