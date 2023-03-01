@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\FallbackController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\PostsController;
+use App\Http\Controllers\PruebasController;
 use Illuminate\Support\Facades\Route;
 use Barryvdh\Debugbar\Facades\Debugbar;
 use Ramsey\Uuid\Builder\FallbackBuilder;
@@ -51,23 +51,23 @@ Route::get('/', HomeController::class);
 
 
 
-Route::prefix('/main')->group(function(){
+Route::prefix('/')->group(function(){
 
 /*GET REQUEST*/
-    Route::get('/', [PostsController::class, 'main'])->name('blog.main');
+    Route::get('/', [PruebasController::class, 'index'])->name('index');
 //Route number regular expression
-    Route::get('/{id}', [PostsController::class, 'show'])->name('blog.show');
+    Route::get('/{id}', [PruebasController::class, 'show'])->name('blog.show');
 
 // /*POST REQUEST*/
-    Route::get('/create', [PostsController::class, 'create'])->name('blog.crate');
-    Route::post('/', [PostsController::class, 'store'])->name('blog.store');
+    Route::get('/create', [PruebasController::class, 'create'])->name('blog.crate');
+    Route::post('/', [PruebasController::class, 'store'])->name('blog.store');
 
 // /*PUT OR PATCH REQUEST*/
-    Route::get('/edit/1', [PostsController::class, 'edit'])->name('blog.edit');
-    Route::patch('/{id}', [PostsController::class, 'update'])->name('blog.update');
+    Route::get('/edit/1', [PruebasController::class, 'edit'])->name('blog.edit');
+    Route::patch('/{id}', [PruebasController::class, 'update'])->name('blog.update');
 
 // /*DELETE REQUEST*/
-    Route::delete('/{id}', [PostsController::class, 'destroy'])->name('blog.detroy');
+    Route::delete('/{id}', [PruebasController::class, 'destroy'])->name('blog.detroy');
 });
 
 /*MULTIPLE HTTP VERBS */

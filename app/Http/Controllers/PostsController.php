@@ -18,12 +18,12 @@ class PostsController extends Controller
     public function main(): View//: Response
     {   
        
-        $pruebas = DB::table('pruebas')->get();
-        dd($pruebas);
-        // return view('blog.main', ['pruebas' => $pruebas]);
+        // $pruebas = DB::table('pruebas')->get();
+        // dd($pruebas);
+        // // return view('blog.main', ['pruebas' => $pruebas]);
         
     
-         return view('blog.main');
+        //  return view('blog.main');
     }
 
     /**
