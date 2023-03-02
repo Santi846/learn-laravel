@@ -65,11 +65,93 @@ class PruebasController extends Controller
         // ->get();
 
         //get tables through multiple conditions
-         $pruebas = DB::table('pruebas')
-        ->where('is_published', true)
-        ->where('id', '>', 60)
-        ->get();
+        //  $pruebas = DB::table('pruebas')
+        // ->where('is_published', true)
+        // ->where('id', '>', 60)
+        // ->get();
 
+         //get tables where colum values are between
+        // $pruebas = DB::table('pruebas')
+        // ->whereBetween('min_to_read', [1, 2])
+        // ->get();
+
+        //get tables where colums can have different values
+        // $pruebas = DB::table('pruebas')
+        // ->whereIn('min_to_read', [1, 2, 3])
+        // ->get();
+
+        //get tables where colum value is null
+        // $pruebas = DB::table('pruebas')
+        // ->whereNull('expert')
+        // ->get();
+
+        //get tables where colum value is not null
+        // $pruebas = DB::table('pruebas')
+        // ->whereNotNull('expert')
+        // ->get();
+
+        //get tables where selected column has a distinct value from the others tables inside the database
+        // $pruebas = DB::table('pruebas')
+        // ->select('min_to_read')
+        // ->distinct()
+        // ->get();
+
+        //get tables ordered by id column in a descending way
+        // $pruebas = DB::table('pruebas')
+        //default is asc
+        // ->orderby('id', 'desc')
+        // ->get();
+
+        //get 10 tables, since id value es 32
+        // $pruebas = DB::table('pruebas')
+        // ->skip(30)
+        // ->take(10)
+        // ->get();
+
+        //get tables in an random order
+        // $pruebas = DB::table('pruebas')
+        // ->inRandomOrder()
+        // ->get();
+
+        //get one single row
+        // $pruebas = DB::table('pruebas')
+        // ->where('id', 65)
+        // ->first();
+
+        //get one single row with an specific id value
+        // $pruebas = DB::table('pruebas')
+        // ->find(11);
+
+        //get just the value of a column inside a single row
+        // $pruebas = DB::table('pruebas')
+        // ->where('id', 15)
+        // ->value('Title');
+
+        //count tables in database
+        // $pruebas = DB::table('pruebas')
+        // ->count();
+        
+        //count tables with id grather than 50 in database
+        // $pruebas = DB::table('pruebas')
+        // ->where('id', '>', 50)
+        // ->count();
+
+        //get minimum value of an specific column
+        // $pruebas = DB::table('pruebas')
+        // ->min('min_to_read');
+
+        //get maximum value of an specific column
+        // $pruebas = DB::table('pruebas')
+        // ->max('min_to_read');
+
+        //get the sum of all specific column values 
+        // $pruebas = DB::table('pruebas')
+        // ->sum('min_to_read');
+
+        //get the average of all specific column values
+        $pruebas = DB::table('pruebas')
+        ->avg('min_to_read');
+        
         dd($pruebas);
 
         return view('index');
