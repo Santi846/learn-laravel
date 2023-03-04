@@ -153,10 +153,21 @@ class PruebasController extends Controller
         // dd($pruebas);
 
         //get the whole database through tables
-        $pruebas = DB::table('pruebas')->find(1);
+        // $pruebas = DB::table('pruebas')->get();
 
-        //return the variable value inside the view
-        return view('index')->with('pruebas', $pruebas);
+        //return the variable value with the view
+        // return view('index')->with('pruebas', $pruebas);
+
+        //get the whole database through tables
+        // $pruebas = DB::table('pruebas')->get();
+        
+        //return data compact in view method
+        // return view('index', compact('pruebas'));
+        
+        return view('index', [
+            'pruebas' => DB::table('pruebas')->get()
+        ]);
+
         
     }
 
