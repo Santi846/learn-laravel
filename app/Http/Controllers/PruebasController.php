@@ -40,9 +40,6 @@ class PruebasController extends Controller
         
         //delete one single row from database
         // $pruebas = DB::delete('DELETE FROM pruebas where id = ?', [24]);
-
-        //get the whole database through tables
-        // $pruebas = DB::table('pruebas')->get();
         
         //select specific columns from all rows
         // $pruebas = DB::table('pruebas')
@@ -149,12 +146,17 @@ class PruebasController extends Controller
         // ->sum('min_to_read');
 
         //get the average of all specific column values
-        $pruebas = DB::table('pruebas')
-        ->avg('min_to_read');
+        // $pruebas = DB::table('pruebas')
+        // ->avg('min_to_read');
         
-        dd($pruebas);
+        //Print in screen
+        // dd($pruebas);
 
-        return view('index');
+        //get the whole database through tables
+        $pruebas = DB::table('pruebas')->find(1);
+
+        //return the variable value inside the view
+        return view('index')->with('pruebas', $pruebas);
         
     }
 

@@ -7,7 +7,7 @@ const isProduction = process.env.NODE_ENV == "production";
 
 const stylesHandler = "style-loader";
 
-const mix = require('laravel-mix');
+// const mix = require('laravel-mix');
 
 const config = {
   entry: "./src/index.js",
