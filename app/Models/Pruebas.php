@@ -8,4 +8,19 @@ use Illuminate\Database\Eloquent\Model;
 class Pruebas extends Model
 {
     use HasFactory;
+
+    // protected $table = 'pruebas';
+
+    // protected $primaryKey = 'title';
+
+    // protected $timestamp = false;
+
+    //set datetime as only seconds
+    // protected $dateTime = 'U';
+
+    // protected $connection = 'sqlite';
+
+    // protected $atributes = [
+    //     'is_published' => true
+    // ];
 }

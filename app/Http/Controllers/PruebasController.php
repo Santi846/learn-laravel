@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
+use App\Models\Pruebas;
 
 
 class PruebasController extends Controller
@@ -164,11 +165,40 @@ class PruebasController extends Controller
         //return data compact in view method
         // return view('index', compact('pruebas'));
         
+        //getting whole database data
+        // return view('index', [
+        //     'pruebas' => DB::table('pruebas')->get()
+        // ]);
+        
+        // $pruebas = Pruebas::orderBy('id', 'desc')->take(5)->get();
+
+        // $pruebas = Pruebas::where('min_to_read', 2 )->get();
+
+        // $pruebas = Pruebas::where('min_to_read', '!=' , 2 )->get();
+
+        // Pruebas::chunk(25, function($pruebas){
+        //     foreach ($pruebas as $prueba) {
+        //         echo $prueba->title . '<br>';
+        //     }
+        // });
+
+        // $pruebas = Pruebas::get()->count();
+
+        // $pruebas = Pruebas::sum('min_to_read');
+
+        //view query data with specific order 
+        // $pruebas = Pruebas::orderBy('updated_at', 'desc');
+
+        // $pruebas = Pruebas::orderBy('updated_at', 'desc')->get();
+
+        //  dd($pruebas);
+
+        // return view('index');
+
         return view('index', [
-            'pruebas' => DB::table('pruebas')->get()
+            'pruebas' => Pruebas::orderBy('updated_at', 'desc')->get()
         ]);
 
-        
     }
 
     /**
@@ -192,7 +222,14 @@ class PruebasController extends Controller
      */
     public function show($id)//: Response
     {
-        return $id;
+        // return $id;
+        // $pruebas = Pruebas::findOrFail($id);
+
+        // dd($pruebas);
+
+        return view('show', [
+            'pruebas' => Pruebas::findOrFail($id)
+        ]);
     }
 
     /**

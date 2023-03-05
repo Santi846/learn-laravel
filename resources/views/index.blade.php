@@ -8,12 +8,14 @@
     <style>
         body {background: rgb(48, 48, 102);
               color: white;
-              font-family: Arial, Helvetica, sans-serif
+              font-family: Arial, Helvetica, sans-serif;
+              text-align: center;
             }
         div {background: rgb(102, 102, 132);
            border: solid 3px #000;
            padding: 1.5%;
-           border-radius: 15px
+           border-radius: 15px;
+           text-align: left
         }
     </style>
 </head>
@@ -33,7 +35,7 @@
     </div> --}}
 
     {{-- Blade conditional statement --}}
-        @if (count($pruebas) > 100)
+        {{-- @if (count($pruebas) > 100)
             <div>
                 {{ dd($pruebas) }}
             </div>
@@ -47,7 +49,7 @@
             <div>
                 Sorry, there is no data from database that match your request, can you change it?
             </div>
-        @endif
+        @endif --}}
     
     {{-- Opposite conditional --}}
     {{-- @unless ($pruebas)

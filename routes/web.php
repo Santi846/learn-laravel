@@ -56,7 +56,7 @@ Route::prefix('/')->group(function(){
 /*GET REQUEST*/
     Route::get('/', [PruebasController::class, 'index'])->name('index');
 //Route number regular expression
-    Route::get('/{id}', [PruebasController::class, 'show'])->name('blog.show');
+    Route::get('/{id}', [PruebasController::class, 'show'])->name('show');
 
 // /*POST REQUEST*/
     Route::get('/create', [PruebasController::class, 'create'])->name('blog.crate');
