@@ -124,7 +124,7 @@ class PruebasController extends Controller
         // ->where('id', 15)
         // ->value('Title');
 
-        //count tables in database
+        //  count tables in database
         // $pruebas = DB::table('pruebas')
         // ->count();
         
