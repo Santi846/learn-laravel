@@ -54,12 +54,13 @@ Route::get('/', HomeController::class);
 Route::prefix('/')->group(function(){
 
 /*GET REQUEST*/
+    Route::get('/create', [PruebasController::class, 'create'])->name('create');
     Route::get('/', [PruebasController::class, 'index'])->name('index');
 //Route number regular expression
     Route::get('/{id}', [PruebasController::class, 'show'])->name('show');
 
 // /*POST REQUEST*/
-    Route::get('/create', [PruebasController::class, 'create'])->name('blog.crate');
+    
     Route::post('/', [PruebasController::class, 'store'])->name('blog.store');
 
 // /*PUT OR PATCH REQUEST*/

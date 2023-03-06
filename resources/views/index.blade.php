@@ -4,18 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Index</title>
     <style>
-        body {background: rgb(48, 48, 102);
+        body {
+              background: rgb(48, 48, 102);
               color: white;
               font-family: Arial, Helvetica, sans-serif;
               text-align: center;
             }
-        div {background: rgb(102, 102, 132);
+        div {
+           background: rgb(102, 102, 132);
            border: solid 3px #000;
            padding: 1.5%;
            border-radius: 15px;
            text-align: left
+        }
+        h3 {
+           color: rgb(0, 0, 0);
+
         }
     </style>
 </head>
@@ -106,6 +112,18 @@
     @empty
         <p>No pruebas has been set</p>
     @endforelse --}}
+    
+    <div class="new_article">
+        <a href="{{ route('create') }}">Add a new article</a>
+    </div>
+    <br>
+    @foreach ($pruebas as $prueba)
+    <br>
+    <div>
+        <a href="{{ route('show', $prueba->id)}}"> {{ $prueba->title }} </a>
+        <p>{{ $prueba->body }}</p>
+    </div>
+    @endforeach
 </body>
 </html>
 

@@ -19,13 +19,17 @@
            text-align: left
         }
     </style>
-    <title>Document</title>
+    <title>Show</title>
 </head>
 <body>
     <h1>Todo por id, que denso</h1>
-    <div>
-        {{ $pruebas }}
-    </div>
+    <h2>{{ $pruebas->title }}</h2>
+    <p>{{ $pruebas->id }}</p>
+    <p>{{ $pruebas->body }}</p>
+    <p>{{ $pruebas->expert }}</p>
+    <p>{{ $pruebas->min_to_read }}</p>
+    
+    
 </body>
 </html>
 

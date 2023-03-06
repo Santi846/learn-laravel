@@ -194,9 +194,14 @@ class PruebasController extends Controller
         //  dd($pruebas);
 
         // return view('index');
+        
+
+        // return view('index', [
+        //     'pruebas' => Pruebas::orderBy('updated_at', 'desc')->get()
+        // ]);
 
         return view('index', [
-            'pruebas' => Pruebas::orderBy('updated_at', 'desc')->get()
+            'pruebas' => Pruebas::orderBy('id', 'desc')->take(3)->get()
         ]);
 
     }
@@ -206,7 +211,7 @@ class PruebasController extends Controller
      */
     public function create()//: Response
     {
-        //
+        return view('create');
     }
 
     /**
@@ -228,7 +233,7 @@ class PruebasController extends Controller
         // dd($pruebas);
 
         return view('show', [
-            'pruebas' => Pruebas::findOrFail($id)
+            'pruebas' => Pruebas::findOrFail($id)   
         ]);
     }
 
