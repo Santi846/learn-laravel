@@ -9,6 +9,11 @@ class Pruebas extends Model
 {
     use HasFactory;
 
+    //prevent overwrite the last row in table, putting new in an array
+    protected $fillable = [
+        'title', 'expert', 'body', 'image_path', 'is_published', 'min_to_read'
+    ];
+
     // protected $table = 'pruebas';
 
     // protected $primaryKey = 'title';

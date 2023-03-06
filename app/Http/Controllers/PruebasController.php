@@ -219,7 +219,31 @@ class PruebasController extends Controller
      */
     public function store(Request $request)//: RedirectResponse
     {
-        //
+        //get all request data and show it
+        // dd($request->all());
+        //to stop executig
+        // exit;
+        //OOP Method
+        // $pruebas = new Pruebas();
+        // $pruebas->title = $request->title;
+        // $pruebas->expert = $request->expert;
+        // $pruebas->body = $request->body;
+        // $pruebas->image_path = 'Temporary';
+        // $pruebas->is_published = $request->is_published === 'on';
+        // $pruebas->min_to_read = $request->min_to_read;
+        // $pruebas->save();
+
+        //Eloquent Method
+        Pruebas::create([
+            'title' => $request->title,
+            'expert' => $request->expert,
+            'body' => $request->body,
+            'image_path' => 'Temporaty',
+            'is_published' => $request->is_published === 'on',
+            'min_to_read' => $request->min_to_read,
+        ]);
+
+        return redirect(route('index'));
     }
 
     /**

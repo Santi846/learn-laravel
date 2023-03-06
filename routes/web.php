@@ -61,7 +61,7 @@ Route::prefix('/')->group(function(){
 
 // /*POST REQUEST*/
     
-    Route::post('/', [PruebasController::class, 'store'])->name('blog.store');
+    Route::post('/', [PruebasController::class, 'store'])->name('store');
 
 // /*PUT OR PATCH REQUEST*/
     Route::get('/edit/1', [PruebasController::class, 'edit'])->name('blog.edit');
