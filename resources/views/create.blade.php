@@ -28,9 +28,10 @@
 
 <div class="m-auto pt-20">
     <form
-        action=""
-        method=""
+        action="{{ route('store') }}"
+        method="POST"
         enctype="multipart/form-data">
+        @csrf
 
         <label for="is_published" class="text-gray-500 text-2xl">
             Is Published
@@ -48,8 +49,8 @@
         <br>
         <input
             type="text"
-            name="excerpt"
-            placeholder="Excerpt..."
+            name="expert"
+            placeholder="Expert..."
             class="bg-transparent block border-b-2 w-full h-20 text-2xl outline-none">
         <br>
         <input
