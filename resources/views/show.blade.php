@@ -25,6 +25,9 @@
     <h1>Todo por id, que denso</h1>
     <h2>{{ $pruebas->title }}</h2>
     <p>{{ $pruebas->id }}</p>
+    <div>
+        {{ $pruebas->image_path }}
+    </div>
     <p>{{ $pruebas->body }}</p>
     <p>{{ $pruebas->expert }}</p>
     <p>{{ $pruebas->min_to_read }}</p>
