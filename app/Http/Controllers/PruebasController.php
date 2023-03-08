@@ -234,6 +234,14 @@ class PruebasController extends Controller
         // $pruebas->save();
 
         //Eloquent Method
+
+        $request->validate([
+            'title' => 'required|unique:pruebas|max:255',
+            'expert' => 'required',
+            'body' => 'required',
+            'image' => ['required', 'mimes:jpg,jpeg,png', 'max:5048'],
+            'min_to_read' => 'min:0|max:60',
+        ]);
         Pruebas::create([
             'title' => $request->title,
             'expert' => $request->expert,

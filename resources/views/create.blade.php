@@ -15,6 +15,23 @@
             border-radius: 5px;
             margin-bottom: 1%;
         }
+        .errors {
+            justify-content: center;
+            background: rgb(201, 0, 0);
+            height: 105px;
+            width: 500px;
+            color: whitesmoke;
+            margin-bottom: 20px;
+            border-radius: 5px;
+             
+        }
+        .errors_list {
+            padding: 5px;
+            color: rgb(193, 62, 55);
+            background: rgb(255, 255, 255);
+            border-radius: 5px;
+            list-style-type: none;
+        }
     </style>
 </head>
 <body>
@@ -27,6 +44,20 @@
     </div>
 
 <div class="m-auto pt-20">
+    <div class="pb-8">
+        @if ($errors->any())
+            <div class='errors'>Something went wrong
+                <ul class="errors_list">
+                    @foreach ( $errors->all() as $error )
+                        <li>
+                            {{ $error }}
+                        </li>
+                    @endforeach
+                </ul>
+            </div>
+            
+        @endif
+    </div>
     <form
         action="{{ route('store') }}"
         method="POST"
