@@ -274,7 +274,9 @@ class PruebasController extends Controller
      */
     public function edit(string $id)//: Response
     {
-        //
+        return view('edit', [
+            'pruebas' => Pruebas::where('id', $id)->first()
+        ]);
     }
 
     /**
@@ -282,7 +284,17 @@ class PruebasController extends Controller
      */
     public function update(Request $request, string $id)//: RedirectResponse
     {
-        //
+        Pruebas::where('id', $id)->update([
+            'title' => $request->title,
+            'expert' => $request->expert,
+            'body' => $request->body,
+            'image_path' => $request->image,
+            'is_published' => $request->is_published === 'on',
+            'min_to_read' => $request->min_to_read,
+        ]);
+
+        return redirect(route('index'));
+
     }
 
     /**

@@ -122,8 +122,13 @@
     <div>
         <a href="{{ route('show', $prueba->id)}}"> {{ $prueba->title }} </a>
         <p>{{ $prueba->body }}</p>
+        <a href="{{ route('edit', $prueba->id)}}"> Edit </a>
     </div>
+
+    
     @endforeach
+
+
 </body>
 </html>
 

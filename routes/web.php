@@ -64,8 +64,8 @@ Route::prefix('/')->group(function(){
     Route::post('/', [PruebasController::class, 'store'])->name('store');
 
 // /*PUT OR PATCH REQUEST*/
-    Route::get('/edit/1', [PruebasController::class, 'edit'])->name('blog.edit');
-    Route::patch('/{id}', [PruebasController::class, 'update'])->name('blog.update');
+    Route::get('/edit/{id}', [PruebasController::class, 'edit'])->name('edit');
+    Route::patch('/{id}', [PruebasController::class, 'update'])->name('update');
 
 // /*DELETE REQUEST*/
     Route::delete('/{id}', [PruebasController::class, 'destroy'])->name('blog.detroy');
