@@ -284,14 +284,27 @@ class PruebasController extends Controller
      */
     public function update(Request $request, string $id)//: RedirectResponse
     {
-        Pruebas::where('id', $id)->update([
-            'title' => $request->title,
-            'expert' => $request->expert,
-            'body' => $request->body,
-            'image_path' => $request->image,
-            'is_published' => $request->is_published === 'on',
-            'min_to_read' => $request->min_to_read,
+
+        // dd($request->except(['_token','_method']));
+
+        // Pruebas::where('id', $id)->update([
+        //     'title' => $request->title,
+        //     'expert' => $request->expert,
+        //     'body' => $request->body,
+        //     'image_path' => $request->image,
+        //     'is_published' => $request->is_published === 'on',
+        //     'min_to_read' => $request->min_to_read,
+        // ]);
+        
+        $request->validate([
+            'title' => 'required|max:255|unique:pruebas,title,' . $id,
+            'expert' => 'required',
+            'body' => 'required',
+            'image' => ['mimes:jpg,jpeg,png', 'max:5048'],
+            'min_to_read' => 'min:0|max:60',
         ]);
+        
+        Pruebas::where('id', $id)->update($request->except(['_token','_method']));
 
         return redirect(route('index'));
 
