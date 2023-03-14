@@ -23,6 +23,23 @@
            color: rgb(0, 0, 0);
 
         }
+        #destroy {
+            margin-top: 5px; 
+            border: solid black 3px;
+            border-radius: 3px;
+            color: red; 
+        }
+        #destroy:hover {
+            margin-top: 5px;
+            border: solid black 3px;
+            border-radius: 3px;
+            color: red; 
+            cursor: pointer;
+        }
+        div#destroy_success_principal {
+            border: salmon solid 3px;
+            border-radius: 2px;
+        }
     </style>
 </head>
 <body>
@@ -117,12 +134,29 @@
         <a href="{{ route('create') }}">Add a new article</a>
     </div>
     <br>
+
+    @if (session()->has('message'))
+        <div id="destroy_success_principal">
+            <div id="detroy_success_title">
+                Warning!
+            </div>    
+            <div id="detroy_success_message">
+                {{ session()->get('message')}}
+            </div>
+        </div>    
+    @endif
+
     @foreach ($pruebas as $prueba)
     <br>
     <div>
         <a href="{{ route('show', $prueba->id)}}"> {{ $prueba->title }} </a>
         <p>{{ $prueba->body }}</p>
         <a href="{{ route('edit', $prueba->id)}}"> Edit </a>
+        <form action="{{ route('destroy', $prueba->id)}}" method="POST">
+            @csrf
+            @method('DELETE')
+            <button id='destroy' type="submit">Delete</button>
+        </form>
     </div>
 
     

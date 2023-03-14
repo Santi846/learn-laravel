@@ -315,7 +315,9 @@ class PruebasController extends Controller
      */
     public function destroy(string $id)//: RedirectResponse
     {
-        //
+        Pruebas::destroy($id);
+
+        return redirect(route('index'))->with('message', 'El articulo fue eliminado correctamente.');
     }
 
     private function storeImage($request){

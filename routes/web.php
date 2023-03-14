@@ -68,7 +68,7 @@ Route::prefix('/')->group(function(){
     Route::patch('/{id}', [PruebasController::class, 'update'])->name('update');
 
 // /*DELETE REQUEST*/
-    Route::delete('/{id}', [PruebasController::class, 'destroy'])->name('blog.detroy');
+    Route::delete('/{id}', [PruebasController::class, 'destroy'])->name('destroy');
 });
 
 /*MULTIPLE HTTP VERBS */
