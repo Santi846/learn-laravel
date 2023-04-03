@@ -286,7 +286,7 @@ class PruebasController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)//: RedirectResponse
+    public function update(PruebasFormRequest $request, string $id)//: RedirectResponse
     {
 
         // dd($request->except(['_token','_method']));
@@ -300,14 +300,15 @@ class PruebasController extends Controller
         //     'min_to_read' => $request->min_to_read,
         // ]);
 
-        $request->validate([
-            'title' => 'required|max:255|unique:pruebas,title,' . $id,
-            'expert' => 'required',
-            'body' => 'required',
-            'image' => ['mimes:jpg,jpeg,png', 'max:5048'],
-            'min_to_read' => 'min:0|max:60'
-        ]);
+        // $request->validate([
+        //     'title' => 'required|max:255|unique:pruebas,title,' . $id,
+        //     'expert' => 'required',
+        //     'body' => 'required',
+        //     'image' => ['mimes:jpg,jpeg,png', 'max:5048'],
+        //     'min_to_read' => 'min:0|max:60'
+        // ]);
 
+        $request->validated();
         
         Pruebas::where('id', $id)->update($request->except(['_token','_method']));
 

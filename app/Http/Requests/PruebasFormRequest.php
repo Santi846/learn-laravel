@@ -19,11 +19,12 @@ class PruebasFormRequest extends FormRequest
      *
      * @return array<string, \Illuminate\Contracts\Validation\Rule|array|string>
      */
-    public function rules($id): array
+    public function rules(): array
     {
         $rules = [
-            'title' => 'required|max:255|unique:pruebas,title,' . $this->$id,
+            // 'title' => 'required|max:255|unique:pruebas,title,' . $this->$id,
             // 'title' => 'required|max:255|unique:pruebas,title,' . $id,
+            'title' => 'required|unique:pruebas|max:255',
             'expert' => 'required',
             'body' => 'required',
             'image' => ['mimes:jpg,jpeg,png', 'max:5048'],
@@ -33,6 +34,10 @@ class PruebasFormRequest extends FormRequest
         if (in_array($this->method(), ['POST'])) {
             $rules['image'] = ['required','mimes:jpg,jpeg,png', 'max:5048'];
         }
+
+        // if(in_array($this->method(), ['PATCH'])) {
+        //     $rules['title'] = ['required|max:255|unique:pruebas,title,' .$id];
+        // }
 
         return $rules; 
     }
