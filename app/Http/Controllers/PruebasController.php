@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
 use App\Models\Pruebas;
+use App\Http\Requests\PruebasFormRequest;
 
 
 class PruebasController extends Controller
@@ -217,7 +218,7 @@ class PruebasController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)//: RedirectResponse
+    public function store(PruebasFormRequest $request)//: RedirectResponse
     {
         //get all request data and show it
         // dd($request->all());
@@ -235,13 +236,16 @@ class PruebasController extends Controller
 
         //Eloquent Method
 
-        $request->validate([
-            'title' => 'required|unique:pruebas|max:255',
-            'expert' => 'required',
-            'body' => 'required',
-            'image' => ['required', 'mimes:jpg,jpeg,png', 'max:5048'],
-            'min_to_read' => 'min:0|max:60',
-        ]);
+        // $request->validate([
+        //     'title' => 'required|unique:pruebas|max:255',
+        //     'expert' => 'required',
+        //     'body' => 'required',
+        //     'image' => ['required', 'mimes:jpg,jpeg,png', 'max:5048'],
+        //     'min_to_read' => 'min:0|max:60'
+        // ]);
+
+        $request->validated();
+        
         Pruebas::create([
             'title' => $request->title,
             'expert' => $request->expert,
@@ -295,14 +299,15 @@ class PruebasController extends Controller
         //     'is_published' => $request->is_published === 'on',
         //     'min_to_read' => $request->min_to_read,
         // ]);
-        
+
         $request->validate([
             'title' => 'required|max:255|unique:pruebas,title,' . $id,
             'expert' => 'required',
             'body' => 'required',
             'image' => ['mimes:jpg,jpeg,png', 'max:5048'],
-            'min_to_read' => 'min:0|max:60',
+            'min_to_read' => 'min:0|max:60'
         ]);
+
         
         Pruebas::where('id', $id)->update($request->except(['_token','_method']));
 
