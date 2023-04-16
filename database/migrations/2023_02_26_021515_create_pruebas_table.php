@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('image_path');
             $table->boolean('is_published');
             $table->timestamps();
+            // $table->users('users');
         });
     }
 

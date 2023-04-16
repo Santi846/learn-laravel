@@ -332,4 +332,8 @@ class PruebasController extends Controller
 
         return $request->image->move(public_path('images'), $newImageName);
     }
+
+    public function users() {
+        return redirect(route('users'));
+    }
 }

@@ -7,13 +7,13 @@
     <title>Index</title>
     <style>
         body {
-              background: rgb(48, 48, 102);
+              background: rgb(111, 111, 212);
               color: white;
               font-family: Arial, Helvetica, sans-serif;
               text-align: center;
             }
         div {
-           background: rgb(102, 102, 132);
+           /* background: rgb(102, 102, 132); */
            border: solid 3px #000;
            padding: 1.5%;
            border-radius: 15px;
@@ -39,6 +39,9 @@
         div#destroy_success_principal {
             border: salmon solid 3px;
             border-radius: 2px;
+        }
+        a {
+            color: white;
         }
     </style>
 </head>

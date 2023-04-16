@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Pruebas extends Model
 {
@@ -11,8 +12,17 @@ class Pruebas extends Model
 
     //prevent overwrite the last row in table, putting new in an array
     protected $fillable = [
-        'title', 'expert', 'body', 'image_path', 'is_published', 'min_to_read'
+        'title', 'expert', 'body', 'image_path', 'is_published', 'min_to_read', 'users'
     ];
+
+    // Get the user associated with the Pruebas
+
+    public function user(): HasOne
+    {
+        $users = Pruebas::find(1)->user;
+
+        return $this->hasOne(User::class, 'foreign_key', 'local_key');
+    }
 
     // protected $table = 'pruebas';
 
@@ -28,4 +38,6 @@ class Pruebas extends Model
     // protected $atributes = [
     //     'is_published' => true
     // ];
+
+
 }

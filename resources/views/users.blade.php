@@ -12,31 +12,18 @@
               text-align: center;
             }
         div {
-           /* background: rgb(102, 102, 132); */
+           background: rgb(102, 102, 132);
            border: solid 3px #000;
            padding: 1.5%;
            border-radius: 15px;
            text-align: left
         }
-        a{
-            color: azure;
-        }
     </style>
-    <title>Show</title>
+    <title>Users</title>
 </head>
 <body>
-    <h1>Todo por id, que denso</h1>
-    <h2>Articulo: {{ $pruebas->title }}</h2>
-    <p>Id: {{ $pruebas->id }}</p>
-    <div>
-        <p>Image Location</p>
-        {{ $pruebas->image_path }}
-    </div>
-    <p>Description: {{ $pruebas->body }}</p>
-    <p>Experis: {{ $pruebas->expert }}</p>
-    <p>Tiempo de lectura: {{ $pruebas->min_to_read }}</p>
-    <a href="{{ route('users') }}">Usuario asociado</a>
-    
+    <h1>Usuario asociado</h1>
+    {{-- <p>{$users->name}</p> --}}
     
 </body>
 </html>
