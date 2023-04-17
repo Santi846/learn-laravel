@@ -10,19 +10,21 @@ class Pruebas extends Model
 {
     use HasFactory;
 
-    //prevent overwrite the last row in table, putting new in an array
-    protected $fillable = [
-        'title', 'expert', 'body', 'image_path', 'is_published', 'min_to_read', 'users'
-    ];
+   
 
     // Get the user associated with the Pruebas
 
-    public function user(): HasOne
-    {
-        $users = Pruebas::find(1)->user;
+    // public function user(): HasOne
+    // {
+    //     $users = Pruebas::find(1)->user;
 
-        return $this->hasOne(User::class, 'foreign_key', 'local_key');
-    }
+    //     return $this->hasOne(User::class, 'foreign_key', 'local_key');
+    // }
+
+     //prevent overwrite the last row in table, putting new in an array
+     protected $fillable = [
+        'title', 'expert', 'body', 'image_path', 'is_published', 'min_to_read', 'user_id'
+    ];
 
     // protected $table = 'pruebas';
 

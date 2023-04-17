@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('pruebas', function (Blueprint $table) {
             $table->bigIncrements('id');
+            // $table->unsignedBigInteger('user_id');
             $table->string('title')->unique();
             $table->text('expert')->nulllable();
             $table->text('body');
@@ -20,7 +21,6 @@ return new class extends Migration
             $table->string('image_path');
             $table->boolean('is_published');
             $table->timestamps();
-            // $table->users('users');
         });
     }
 

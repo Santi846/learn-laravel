@@ -7,6 +7,8 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\Pruebas;
+use App\Models\Phone;
+use App\Models\Person;
 
 class DatabaseSeeder extends Seeder
 {   
@@ -19,6 +21,8 @@ class DatabaseSeeder extends Seeder
         // $this->call([PruebasTableSeeder::class]);
 
         Pruebas::factory(100)->create();
+        Phone::factory(100)->create();
+        Person::factory(100)->create();
 
         // Pruebas::factory(100)->create([
         //     'body' => 'Descubriendo nuevos orizontes'

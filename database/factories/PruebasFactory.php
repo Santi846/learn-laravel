@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use App\Models\User;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Model>
@@ -15,7 +16,9 @@ class PruebasFactory extends Factory
      * @return array<string, mixed>
      */
     public function definition(): array
-    {
+    {   
+        // $user_id = factory(App\Models\User::class)->create();
+
         return [
             'title' => $this->faker->unique()->sentence(),
             'expert' => $this->faker->realText($maxNumChars = 50),
