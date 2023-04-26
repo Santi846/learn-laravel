@@ -9,9 +9,19 @@ class Person extends Model
 {
     use HasFactory;
 
-    public function phone(): HasOne
+    
+    public function person(): HasOne
     {
         // return $this->hasOne(Phone::class);
-        return $this->hasOne(Phone::class, 'people_id', 'id');
+        return $this->hasOne(Phone::class);
     }
+
+    public function personComments(): HasMany
+    {
+        return $this->hasMany(Comments::class);
+    }
+
+    protected $fillable = [
+        'name', 'phone', 'comments'
+    ];
 }

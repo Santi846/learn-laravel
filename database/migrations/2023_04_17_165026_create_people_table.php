@@ -14,15 +14,12 @@ return new class extends Migration
     {       
         
         Schema::create('people', function (Blueprint $table) {
-            $table->id();
-            // $table->unsignedBigInteger('phone_id');
+            $table->bigIncrements('id');
+            // $table->unsignedBigInteger('user_id');
+            $table->string('name')->unique();
+            $table->integer('phone');
+            $table->text('comments');
             $table->timestamps();
-
-            // $table->foreign('phone_id')->references('id')->on('phones');
-            // $table->foreign('phone_id')->references('id')->on('phones');
-            // $table->foreign('phone_id')->references('id')->on('phones');
-            // $table->foreignId('phone_id')->references('id')->on('phones');
-            // $table->foreignId('phone_id')->constraints('phones');
         });
     }
 

@@ -3,11 +3,12 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use App\Models\Comments;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Person>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Comments>
  */
-class PersonFactory extends Factory
+class CommentsFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -17,9 +18,8 @@ class PersonFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => $this->faker->text(),
-            'phone' => $this->faker->numberBetween(111111111,999999999),
-            'comments' => $this->faker->text()
+            'comments' => $this->faker->text(),
+            'person' => $this->faker->text()
         ];
     }
 }

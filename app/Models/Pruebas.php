@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasOne;
+// use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Pruebas extends Model
 {
@@ -23,7 +23,7 @@ class Pruebas extends Model
 
      //prevent overwrite the last row in table, putting new in an array
      protected $fillable = [
-        'title', 'expert', 'body', 'image_path', 'is_published', 'min_to_read', 'user_id'
+        'title', 'expert', 'body', 'image_path', 'is_published', 'min_to_read'
     ];
 
     // protected $table = 'pruebas';
