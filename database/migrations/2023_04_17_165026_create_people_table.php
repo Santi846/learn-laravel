@@ -15,7 +15,6 @@ return new class extends Migration
         
         Schema::create('people', function (Blueprint $table) {
             $table->bigIncrements('id');
-            // $table->unsignedBigInteger('user_id');
             $table->string('name')->unique();
             $table->integer('phone');
             $table->text('comments');

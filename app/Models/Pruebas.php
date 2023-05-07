@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Comments;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 // use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Pruebas extends Model
@@ -25,6 +27,14 @@ class Pruebas extends Model
      protected $fillable = [
         'title', 'expert', 'body', 'image_path', 'is_published', 'min_to_read'
     ];
+
+    public function comments(): HasMany
+    {
+        return $this->hasMany(Comments::class);
+    }
+
+
+
 
     // protected $table = 'pruebas';
 

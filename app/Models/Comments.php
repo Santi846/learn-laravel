@@ -4,14 +4,16 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Pruebas;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Comments extends Model
 {
     use HasFactory;
 
-    public function person(): BelongsTo
+    public function pruebas(): BelongsTo
     {
-        return $this->belongsTo(Person::class);
+        return $this->belongsTo(Pruebas::class);
     }
 
     protected $fillable = [

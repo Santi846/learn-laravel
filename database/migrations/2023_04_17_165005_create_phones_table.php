@@ -13,7 +13,6 @@ return new class extends Migration
     {
         Schema::create('phones', function (Blueprint $table) {
             $table->bigIncrements('id');
-            // $table->unsignedBigInteger('user_id');
             $table->string('person');
             $table->integer('phone')->default();
             $table->timestamps();

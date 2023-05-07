@@ -35,8 +35,9 @@
     <p>Description: {{ $pruebas->body }}</p>
     <p>Experis: {{ $pruebas->expert }}</p>
     <p>Tiempo de lectura: {{ $pruebas->min_to_read }}</p>
-    <a href="{{ route('users') }}">Usuario asociado</a>
-    
+    <div>
+        {{ $comments->comments }}
+    </div>
     
 </body>
 </html>

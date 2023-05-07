@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
 use App\Models\Pruebas;
+use App\Models\Comments;
 use App\Http\Requests\PruebasFormRequest;
 
 
@@ -252,7 +253,7 @@ class PruebasController extends Controller
             'body' => $request->body,
             'image_path' => $this->storeImage($request),
             'is_published' => $request->is_published === 'on',
-            'min_to_read' => $request->min_to_read,
+            'min_to_read' => $request->min_to_read
         ]);
 
         return redirect(route('index'));
@@ -269,7 +270,8 @@ class PruebasController extends Controller
         // dd($pruebas);
 
         return view('show', [
-            'pruebas' => Pruebas::findOrFail($id)   
+            'pruebas' => Pruebas::findOrFail($id),
+            'comments' => Comments::findOrFail($id)   
         ]);
     }
 
