@@ -202,9 +202,13 @@ class PruebasController extends Controller
         //     'pruebas' => Pruebas::orderBy('updated_at', 'desc')->get()
         // ]);
 
-        return view('index', [
-            'pruebas' => Pruebas::orderBy('id', 'desc')->take(3)->get()
-        ]);
+        // return view('index', [
+        //     'pruebas' => Pruebas::orderBy('id', 'desc')->take(3)->get()
+        // ]);
+
+        $data = Pruebas::orderBy('id', 'desc')->take(3)->get();
+
+        return response()->json($data);
 
     }
 
