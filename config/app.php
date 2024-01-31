@@ -1,6 +1,10 @@
 <?php
 
+// namespace  Barryvdh\Cors;
+
 use Illuminate\Support\Facades\Facade;
+// use Barryvdh\Cors\ServiceProvider;
+
 
 
 return [
@@ -196,7 +200,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
-        Barryvdh\Cors\ServiceProvider::class,
+        // Barryvdh\Cors\ServiceProvider::class,
 
     ],
 

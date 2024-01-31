@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use App\Models\Pruebas;
 use App\Models\Comments;
 use App\Http\Requests\PruebasFormRequest;
+use Illuminate\Http\JsonResponse; // Import JsonResponse class
 
 
 class PruebasController extends Controller
@@ -19,7 +20,8 @@ class PruebasController extends Controller
 
     
 
-    public function index():View
+    // public function index():View
+    public function index():JsonResponse
     {   
         
         //get all tables from database
