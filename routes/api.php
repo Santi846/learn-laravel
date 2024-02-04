@@ -19,7 +19,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 
-Route::prefix('/')->group(function(){
+Route::prefix('cors')->group(function(){
 
     /*GET REQUEST*/
         Route::get('/create', [PruebasController::class, 'create'])->name('create');
@@ -40,3 +40,10 @@ Route::prefix('/')->group(function(){
     // /*DELETE REQUEST*/
         Route::delete('/{id}', [PruebasController::class, 'destroy'])->name('destroy');
     });
+    // I did not try this one yet
+    // Route::middleware(['cors'])->group(function () {
+    //     // Your routes go here
+    //     Route::get('/data', 'YourController@index');
+    //     // Add more routes as needed
+    // });
+    
